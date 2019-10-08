@@ -1,13 +1,6 @@
 const apiURL = "https://randomuser.me/api/?results=12";
 const peopleList = document.getElementById("people");
 
-/* Fetch the data and turn it into JSON --------------------------*/
-async function createJSON() {
-  const apiJson = fetch(apiURL).then(response => response.json());
-  // console.log(apiJson);
-  return apiJson;
-}
-
 /* Post profile information in index.html --------------------------*/
 // Create instance of createJSON
 // Use .map() to take a single person from the array of people
@@ -15,9 +8,8 @@ async function createJSON() {
 // Append each section to the peopleList div
 // Create HTML tags and store information within them
 
-async function genereateHTML() {
-  const people = createJSON(apiJson);
-  people.map(person => {
+async function genereateHTML(data) {
+  data.map(person => {
     const section = document.createElement("section");
     peopleList.appendChild(section);
     section.innerHTML = `
@@ -29,4 +21,11 @@ async function genereateHTML() {
   });
 }
 
-createJSON();
+/* Fetch the data--------------------------*/
+// Turn response into json
+// Send the data to the generateHTML function
+// Catch any errors
+fetch(apiURL)
+  .then(response => response.json())
+  .then(data => generateHTML(data.results))
+  .catch(error => console.log("Looks like there was a problem", error));
