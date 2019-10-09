@@ -7,8 +7,7 @@ const peopleList = document.getElementById("people");
 // Create the section variable to store each person in
 // Append each section to the peopleList div
 // Create HTML tags and store information within them
-
-async function genereateHTML(data) {
+async function generateHTML(data) {
   data.map(person => {
     const section = document.createElement("section");
     peopleList.appendChild(section);
