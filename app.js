@@ -26,6 +26,9 @@ async function generateHTML(data) {
       </button>
     `;
   });
+  for (i = 0; i <= sectionButton.length; i += 1) {
+    generateModal(sectionButton[i]);
+  }
 }
 
 /* Generate modal information--------------------------*/
@@ -33,7 +36,7 @@ async function generateHTML(data) {
 // Create an element to hold the section in the modal
 // Append the section to the list of people in the modal
 // Set the inner HTML of the modal being viewed.
-async function generateModal(section) {
+async function generateModal(section, data) {
   section.map(person => {
     const modalSection = document.createElement("modalSection");
     modalPeopleList.appendChild(modalSection);
@@ -57,19 +60,6 @@ fetch(apiURL)
   .then(data => generateHTML(data.results))
   .then(data => generateModal(sectionClass))
   .catch(error => console.log("Looks like there was a problem", error));
-
-/* Create event listener --------------------------*/
-// If user clicks on a section, pass the section to the generateModal function
-for (i = 0; i <= sectionButton.length; i += 1) {
-  sectionButton[i].addEventListener("click", async event => {
-    modalPeopleList.style.display = "block";
-  });
-}
-
-// If user clicks the closing 'x', change display of modalPeopleList (id=modal-people) from "none" to "block"
-// close.addEventListener("click", async event => {
-//   modalPeopleList.style.display = "none";
-// });
 
 // If user clicks the closing 'x', change display of modalPeopleList (id=modal-people) from "none" to "block"
 window.onclick = function(event) {
