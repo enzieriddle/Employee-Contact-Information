@@ -60,16 +60,18 @@ fetch(apiURL)
 
 /* Create event listener --------------------------*/
 // If user clicks on a section, pass the section to the generateModal function
-sectionButton.addEventListener("click", async event => {
-  modalPeopleList.style.display = "block";
-});
+for (i = 0; i <= sectionButton.length; i += 1) {
+  sectionButton[i].addEventListener("click", async event => {
+    modalPeopleList.style.display = "block";
+  });
+}
 
 // If user clicks the closing 'x', change display of modalPeopleList (id=modal-people) from "none" to "block"
-close.addEventListener("click", async event => {
-  modalPeopleList.style.display = "none";
-});
+// close.addEventListener("click", async event => {
+//   modalPeopleList.style.display = "none";
+// });
 
-// If user clicks anywhere outside the modal, change display of modalPeopleList (id=modal-people) from "none" to "block"
+// If user clicks the closing 'x', change display of modalPeopleList (id=modal-people) from "none" to "block"
 window.onclick = function(event) {
   if (event.target == modalPeopleList) {
     modalPeopleList.style.display = "none";
