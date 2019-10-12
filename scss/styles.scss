@@ -2,6 +2,12 @@ body {
   background-color: darken(white, 2%);
 }
 
+h1 {
+  font-family: "Roboto", sans-serif;
+  font-size: 1rem;
+  margin-left: 1em;
+}
+
 .section {
   display: grid;
   height: 15%;
@@ -20,7 +26,6 @@ button:hover {
 }
 
 .people {
-  margin-top: 4em;
   width: 85vw;
   height: 100vh;
   flex-wrap: wrap;
