@@ -16,10 +16,20 @@ function generateHTML(data) {
     peopleList.appendChild(section);
     section.innerHTML = `
       <button>
-      <img src=${person.picture.medium}>
-      <h2>${person.name.first} ${person.name.last}</h2>
-      <h3>${person.email}</h3>
-      <h3>${person.location.city}</h3>
+        <div class="person-image">
+          <img src=${person.picture.medium}>
+        </div>
+        <div class="person-info">
+          <div class="person-name">
+            <h2>${person.name.first} ${person.name.last}</h2>
+          </div>
+          <div class="person-email">
+            <h3>${person.email}</h3>
+          </div>
+          <div class="person-city">
+            <h3>${person.location.city}</h3>
+          </div>
+        </div>
       </button>
     `;
   });

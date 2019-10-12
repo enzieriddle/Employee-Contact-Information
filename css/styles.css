@@ -1,3 +1,71 @@
+body {
+  background-color: #fafafa;
+}
 
+.section {
+  display: grid;
+  height: 15%;
+  grid-template-areas: "person-image person-info";
+}
+
+button {
+  background-color: white;
+  border-radius: 3px;
+  border: 1px solid #cfcfcf;
+  transition: 0.4s ease-in-out;
+}
+
+button:hover {
+  background-color: #f2f2f2;
+}
+
+.people {
+  margin-top: 4em;
+  width: 85vw;
+  height: 100vh;
+  flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+}
+
+.person-image {
+  float: left;
+  margin-left: 1em;
+}
+
+.person-image img {
+  grid-area: person-image;
+  border-radius: 50%;
+}
+
+.person-info {
+  grid-area: person-info;
+  margin-left: 6em;
+}
+
+.person-name {
+  font-size: 0.6rem;
+}
+
+.person-email {
+  font-size: 0.6rem;
+}
+
+.person-city {
+  font-size: 0.6rem;
+}
+
+.person-info h3 {
+  font-weight: lighter;
+}
+
+.person-info h2,
+.person-info h3 {
+  font-family: "Roboto", sans-serif;
+}
+
+#modal {
+  display: none;
+}
 
 /*# sourceMappingURL=styles.css.map */
