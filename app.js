@@ -46,9 +46,18 @@ function generateHTML(data) {
 // Append the section to the list of people in the modal
 // Set the inner HTML of the modal being viewed.
 async function generateModal(person) {
+  // Create 'x' for user to exit modal
+  const close = document.createElement("span");
+  close.classList = "close";
+  close.innerHTML = `&times;`;
+
   const modalPeopleList = document.getElementById("modal");
+  // const modalContent = document.getElementsByClassName("modal-content");
   const modalSection = document.createElement("section");
-  modalPeopleList.appendChild(modalSection);
+  modalSection.classList = "modal-content";
+  // modalSection.classList = "modal-section";
+  close.append(modalSection);
+  modalPeopleList.appendChild(close);
   modalSection.innerHTML = `
       <img src=${person.picture.medium}>
       <h2>${person.name.first} ${person.name.last}</h2>
@@ -57,13 +66,35 @@ async function generateModal(person) {
       <h3>${person.location.street} ${person.location.city} ${person.location.state} ${person.location.postcode}</h3>
       <h3>${person.dob.date}</h3>
     `;
-  // If user clicks the closing 'x', change display of modalPeopleList (id=modal-people) from "none" to "block"
+
+  /* Modal--------------------------*/
+  // Get the modal
+  var modal = document.getElementById("modal");
+
+  // Get the button that opens the modal
+  const sectionButton = document.querySelectorAll(".section button");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal
+  sectionButton.onclick = function() {
+    modal.style.display = "block";
+  };
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  };
+
+  // When the user clicks anywhere outside of the modal, close it
   window.onclick = function(event) {
-    if (event.target == modalPeopleList) {
-      modalPeopleList.style.display = "none";
+    if (event.target == modal) {
+      modal.style.display = "none";
     }
   };
 }
+
 /* Fetch the data--------------------------*/
 // Turn response into json
 // Send the data to the generateHTML function
