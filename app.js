@@ -47,18 +47,38 @@ function generateHTML(data) {
 // Set the inner HTML of the modal being viewed.
 async function generateModal(person) {
   const modalPeopleList = document.getElementById("modal");
+  modalPeopleList.innerHTML = "";
   const modalSection = document.createElement("section");
   modalSection.classList = "modal-content";
   // modalSection.append(close);
   modalPeopleList.appendChild(modalSection);
   modalSection.innerHTML = `
-      <span class="close">&times;</span>
-      <img src=${person.picture.medium}>
-      <h2>${person.name.first} ${person.name.last}</h2>
-      <h3>${person.email}</h3>
-      <h3>${person.cell}</h3>
-      <h3>${person.location.street} ${person.location.city} ${person.location.state} ${person.location.postcode}</h3>
-      <h3>${person.dob.date}</h3>
+      <div class="close">
+        <span>&times;</span>
+      </div>
+      <div class="modal-image">
+        <img src=${person.picture.medium}>
+      </div>
+      <div class="modal-info">
+        <div class="modal-name">
+          <h2>${person.name.first} ${person.name.last}</h2>
+        </div>
+        <div class="modal-email">
+          <h3>${person.email}</h3>
+        </div>
+        <div class="h-line">
+          <hr>
+        </div>
+        <div class="modal-cell">
+          <h3>${person.cell}</h3>
+        </div>
+        <div class="modal-address">
+          <h3>${person.location.street.number} ${person.location.street.name} ${person.location.city} ${person.location.state} ${person.location.postcode}</h3>
+        </div>
+        <div class="modal-birthday">
+          <h3>Birthday: ${person.dob.date}</h3>
+        </div>
+      </div>
     `;
 
   /* Modal--------------------------*/
@@ -72,9 +92,7 @@ async function generateModal(person) {
   const span = document.querySelector(".close");
 
   // When the user clicks on the button, open the modal
-  sectionButton.onclick = function() {
-    modalPeopleList.style.display = "block";
-  };
+  modalPeopleList.style.display = "block";
 
   // When the user clicks on <span> (x), close the modal
   span.onclick = function() {

@@ -5,13 +5,13 @@ body {
 h1 {
   font-family: "Roboto", sans-serif;
   font-size: 1rem;
-  margin-left: 3em;
-  margin-top: 2.5em;
+  margin: 2.5em 0 1.5em 3em;
 }
 
 .section {
   display: grid;
-  margin-left: 2em;
+  margin-left: 1em;
+  margin-right: 1em;
   height: 100px;
   width: 300px;
   grid-template-areas: "person-image person-info";
@@ -31,7 +31,7 @@ button:hover {
 .people {
   margin-top: 1em;
   width: 100vw;
-  height: 100vh;
+  height: 85vh;
   flex-wrap: wrap;
   display: flex;
   justify-content: center;
@@ -39,7 +39,7 @@ button:hover {
 
 .person-image {
   float: left;
-  margin-left: 1em;
+  margin: 0.5em 0.5em 0 1em;
 }
 
 .person-image img {
@@ -75,7 +75,7 @@ button:hover {
 }
 
 /* The Modal (background) */
-.modal {
+#modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
   z-index: 1; /* Sit on top */
@@ -94,9 +94,11 @@ button:hover {
   font-family: "Roboto", sans-serif;
   background-color: #fefefe;
   margin: 15% auto; /* 15% from the top and centered */
-  padding: 20px;
+  padding: 20px 20px 100px 20px;
   border: 1px solid #888;
-  width: 30%; /* Could be more or less, depending on screen size */
+  border-radius: 6px;
+  width: 25%; /* Could be more or less, depending on screen size */
+  height: 50%;
   position: absolute;
   left: 0;
   right: 0;
@@ -105,14 +107,10 @@ button:hover {
   z-index: 2;
 }
 
-.modal-content img {
-  border-radius: 50%;
-}
-
 /* The Close Button */
 .close {
   color: #aaa;
-  float: right;
+  margin-left: 0.5em;
   font-size: 28px;
   font-weight: bold;
 }
@@ -122,4 +120,40 @@ button:hover {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+/* Modal Content */
+.modal-image {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-image img {
+  border-radius: 50%;
+  width: 140px;
+  height: 140px;
+}
+
+.modal-name,
+.modal-email,
+.modal-cell,
+.modal-address,
+.modal-birthday {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+.modal-name h2 {
+  font-weight: bolder;
+  font-size: 1.2rem;
+  margin: 1em auto 0 auto;
+}
+
+.modal-email h3,
+.modal-cell h3,
+.modal-address h3,
+.modal-birthday h3 {
+  font-weight: lighter;
+  font-size: 1rem;
 }
