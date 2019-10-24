@@ -73,10 +73,14 @@ async function generateModal(person) {
           <h3>${person.cell}</h3>
         </div>
         <div class="modal-address">
-          <h3>${person.location.street.number} ${person.location.street.name} ${person.location.city} ${person.location.state} ${person.location.postcode}</h3>
+          <h3>${person.location.street.number} ${person.location.street.name} ${
+    person.location.city
+  } ${person.location.state} ${person.location.postcode}</h3>
         </div>
         <div class="modal-birthday">
-          <h3>Birthday: ${person.dob.date}</h3>
+          <h3>Birthday: ${new Date(
+            Date.parse(person.dob.date)
+          ).toLocaleDateString(navigator.location)}</h3>
         </div>
       </div>
     `;
