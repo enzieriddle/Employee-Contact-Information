@@ -69,7 +69,7 @@ async function generateModal(person) {
   const sectionButton = document.querySelectorAll(".section button");
 
   // Get the <span> element that closes the modal
-  var span = document.getElementsByClassName("close");
+  const span = document.querySelector(".close");
 
   // When the user clicks on the button, open the modal
   sectionButton.onclick = function() {
