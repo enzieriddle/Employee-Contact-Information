@@ -10,11 +10,10 @@ h1 {
 
 .section {
   display: grid;
-  margin-left: 1em;
-  margin-right: 1em;
+  margin: 0.5em auto;
   height: 100px;
-  width: 300px;
-  grid-template-areas: "person-image person-info";
+  min-width: 240px;
+  // grid-template-areas: "person-image person-info";
 }
 
 button {
@@ -22,6 +21,7 @@ button {
   border-radius: 3px;
   border: 1px solid #cfcfcf;
   transition: 0.4s ease-in-out;
+  // max-width: 250px;
 }
 
 button:hover {
@@ -30,7 +30,6 @@ button:hover {
 
 .people {
   margin-top: 1em;
-  width: 100vw;
   height: 85vh;
   flex-wrap: wrap;
   display: flex;
@@ -39,17 +38,18 @@ button:hover {
 
 .person-image {
   float: left;
-  margin: 0.5em 0.5em 0 1em;
 }
 
 .person-image img {
   grid-area: person-image;
   border-radius: 50%;
+  width: 50px;
+  height: 50px;
 }
 
 .person-info {
   grid-area: person-info;
-  margin-left: 6em;
+  float: right;
 }
 
 .person-name {
@@ -71,7 +71,7 @@ button:hover {
 .person-info h2,
 .person-info h3 {
   font-family: "Roboto", sans-serif;
-  text-align: left;
+  text-align: right;
 }
 
 /* The Modal (background) */
@@ -97,8 +97,8 @@ button:hover {
   padding: 20px 20px 100px 20px;
   border: 1px solid #888;
   border-radius: 6px;
-  width: 25%; /* Could be more or less, depending on screen size */
-  height: 50%;
+  width: 65%; /* Could be more or less, depending on screen size */
+  height: 30%;
   position: absolute;
   left: 0;
   right: 0;
@@ -130,8 +130,12 @@ button:hover {
 
 .modal-image img {
   border-radius: 50%;
-  width: 140px;
-  height: 140px;
+  width: 50px;
+  height: 50px;
+  @media (min-width: 768px) {
+    width: 70px;
+    height: 70px;
+  }
 }
 
 .modal-name,
@@ -142,12 +146,15 @@ button:hover {
   display: flex;
   justify-content: center;
   margin: 0 auto;
+  text-align: center;
 }
 
 .modal-name h2 {
   font-weight: bolder;
-  font-size: 1.2rem;
-  margin: 1em auto 0 auto;
+  font-size: 0.8rem;
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 }
 
 .modal-email h3,
@@ -155,5 +162,9 @@ button:hover {
 .modal-address h3,
 .modal-birthday h3 {
   font-weight: lighter;
-  font-size: 1rem;
+  font-size: 0.8rem;
+  margin: 0.3em auto;
+  @media (min-width: 768px) {
+    font-size: 1rem;
+  }
 }
